@@ -18,20 +18,21 @@ for fileName in os.listdir(directory):
         print(file_change)
 """
 
-
 file_type_list = []
 for filename in os.listdir("/Users/Gustaf/downloads"): #insert your downloads folder path
-    path = "/Users/Gustaf/downloads"
+    path = directory
     file_type = os.path.splitext(filename)[1]
+    if file_type in file_type_list:
+        continue
     if file_type not in file_type_list:
         file_type_list.append(file_type)
-print(file_type_list)
+        #newPath = os.path.join(directory, file_type)
+        try:
+            print(directory + file_type.replace(".", "/"))
+            os.mkdir(directory + file_type.replace(".", "/"))
+        except OSError as error:
+            print(error)
 
-
-
-# koppla python till downloads
-# ge python åtkomst till downloads
-# kör en while genom downloads, konstant
 # när python hittar en fil, för en IF - IF (filtyp hittad): gör en mapp åt den filtypen.
 # IF (filtypen har redan en mapp): lägg filen i rätt mapp
 # kolla upp hur man får ett script att va konstant igång
