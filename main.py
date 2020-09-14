@@ -9,13 +9,24 @@ directory = "/Users/Gustaf/downloads"
 #file_change = shutil.move(source, destination)
 #print(file_change)
 
-
+"""
 for fileName in os.listdir(directory):
-    if fileName.endswith(".pdf"):
+    if fileName.endswith(".dmg"):
         source = fileName
-        destination = "pdf_folder"
+        destination = "dmg_folder"
         file_change = shutil.move(source, destination)
         print(file_change)
+"""
+
+
+file_type_list = []
+for filename in os.listdir("/Users/Gustaf/downloads"): #insert your downloads folder path
+    path = "/Users/Gustaf/downloads"
+    file_type = os.path.splitext(filename)[1]
+    if file_type not in file_type_list:
+        file_type_list.append(file_type)
+print(file_type_list)
+
 
 
 # koppla python till downloads
